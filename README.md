@@ -1,14 +1,15 @@
 # scratch-buf
 
-A simple plugin to provide a scratch buffer for jotting down random notes in NeoVim while you're doing other things. The plugin will open a new vertical or horizontal split with a buffer named `*scratch-buffer*`, and a `txt` filetype.
+Inspired by Emac's scratch-buffer, which is immensely useful, this is a simple plugin that provides a scratch buffer for jotting down random notes in NeoVim while you're doing other things. The plugin will open a new vertical or horizontal split with a buffer named `*scratch-buffer*`, and a `txt` filetype.
 
-Written in Lua for Neovim.
+Written in Lua, so you know that it's sweeter than skittles.
 
 ## Features
 
 - Opens a new buffer in a new vertical or horizontal split window.
-- Automatically switch to an existing scratch buffer if it's already open.
+- Automatically switch to the existing scratch buffer, if it's already open.
 - Scratch buffers are ephemeral, and not backed up to a file.
+- Doesn't crash your computer.
 
 ## Installation
 
