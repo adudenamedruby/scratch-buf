@@ -44,10 +44,9 @@ end
 
 --- Creates a new scratch buffer in Neovim.
 --
--- This function creates a new scratch buffer in Neovim, either in a new window
--- or by editing the current buffer. The buffer is configured to work like a
--- scratch buffer, meaning it is not backed by a file and has specific options
--- set.
+-- This function creates a new scratch buffer in Neovim, in a new window. The buffer
+-- is configured to work like a scratch buffer, meaning it is not backed by a file
+-- and has specific options set.
 --
 -- @param is_vertical (boolean) Whether to create the scratch buffer include
 --   a vertical window. If true, the buffer will be created in a vertical window.
@@ -57,7 +56,7 @@ end
 -- @return None
 --
 local function create_new_scratch_buffer(is_vertical, buffer_name)
-    -- Check if the buffer name is set
+    -- Make sure the buffer name is set
     if
         not buffer_name
         or type(buffer_name) ~= "string"
@@ -93,8 +92,9 @@ end
 -- Then, it searches for an existing scratch buffer. If found, it switches to
 -- that buffer. Otherwise, it creates a new scratch buffer.
 --
--- @param is_vertical A boolean indicating whether a new window should be created. If not provided,
---                   it defaults to the state of the buffer's modification (true if modified).
+-- @param is_vertical A boolean indicating whether a new window should be created.
+--                    If not provided, it defaults to the state of the buffer'state
+--                    modification (true if modified).
 --
 -- @return None
 --
@@ -118,7 +118,7 @@ end
 -- `open_or_split` function with `true` to indicate the need for a split window.
 --
 -- Usage:
--- :lua require('scratch').horizontal()
+-- :lua require('scratch-buf').horizontal()
 --
 function M.horizontal()
     horizontal_or_vertical(false)
@@ -131,7 +131,7 @@ end
 -- function with `false`, indicating no new window is needed.
 --
 -- Usage:
--- :lua require('scratch').vertical()
+-- :lua require('scratch-buf').vertical()
 --
 function M.vertical()
     horizontal_or_vertical(true)
@@ -149,7 +149,7 @@ end
 --   is not a string.
 --
 -- Usage:
--- :lua require('scratch').setup({ buffer_name = "my_scratch" })
+-- :lua require('scratch-buf').setup({ buffer_name = "fancy_pants_notepad" })
 --
 function M.setup(opts)
     -- Default configuration
@@ -169,7 +169,6 @@ function M.setup(opts)
         M.config.buffer_name = opts.buffer_name or M.config.buffer_name
     end
 
-    -- Bind commands to our lua functions
     vim.api.nvim_create_user_command("ScratchVSplit", M.vertical, {})
     vim.api.nvim_create_user_command("ScratchHSplit", M.horizontal, {})
 end
