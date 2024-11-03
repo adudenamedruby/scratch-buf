@@ -72,7 +72,7 @@ local function create_new_scratch_buffer(is_vertical, buffer_name)
     vim.cmd(cmd .. buffer_name)
 
     -- Sets the options for the buffer to work like a scratch buffer.
-    local buf = vim.api.nvim_get_current_buf() -- should always be 0
+    local buf = vim.api.nvim_get_current_buf()
     -- what to do when the buffer is hidden
     vim.api.nvim_set_option_value("bufhidden", "hide", { buf = buf })
     -- include the buffer in the :bnext list
@@ -104,7 +104,7 @@ local function horizontal_or_vertical(is_vertical)
 
     -- Look for an existing scratch buffer
     local scratch_buffer_num = vim.fn.bufnr(M.config.buffer_name)
-    if scratch_buffer_num ~= -1 then
+    if scratch_buffer_num ~= -1 and vim.fn.bufloaded(scratch_buffer_num) == 1 then
         switch_to_existing_buffer(is_vertical, scratch_buffer_num)
     else
         create_new_scratch_buffer(is_vertical, M.config.buffer_name)
@@ -154,7 +154,7 @@ end
 function M.setup(opts)
     -- Default configuration
     M.config = {
-        buffer_name = "scratch-buffer",
+        buffer_name = "*scratch-buffer*",
     }
 
     -- Check for configuration overrides passed in via opts
