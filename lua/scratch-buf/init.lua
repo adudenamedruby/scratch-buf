@@ -68,7 +68,7 @@ local function create_new_scratch_buffer(is_vertical, buffer_name)
     end
 
     -- Either new (for split) or edit the new buffer with buffer_name
-    local cmd = is_vertical and "split " or "vsplit "
+    local cmd = is_vertical and "vsplit " or "split "
     vim.cmd(cmd .. buffer_name)
 
     -- Sets the options for the buffer to work like a scratch buffer.
