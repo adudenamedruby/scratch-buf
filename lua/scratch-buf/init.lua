@@ -68,7 +68,7 @@ local function create_new_scratch_buffer(is_vertical, buffer_name)
     end
 
     -- Either new (for split) or edit the new buffer with buffer_name
-    local cmd = is_vertical and "vsplit " or "split "
+    local cmd = is_vertical and "split " or "vsplit "
     vim.cmd(cmd .. buffer_name)
 
     -- Sets the options for the buffer to work like a scratch buffer.
@@ -82,7 +82,7 @@ local function create_new_scratch_buffer(is_vertical, buffer_name)
     -- never swapfiles
     vim.api.nvim_set_option_value("swapfile", false, { buf = buf })
     -- make sure it's just a text buffer
-    vim.api.nvim_set_option_value("filetype", "txt", { buf = buf })
+    vim.api.nvim_set_option_value("filetype", "lua", { buf = buf })
 end
 
 --- Creates a new horizontal or vertical window based on the specified conditions.

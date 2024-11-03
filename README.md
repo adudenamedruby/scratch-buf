@@ -21,8 +21,8 @@ Install as you would any other plugin NeoVim.
   "adudenamedruby/scratch-buf",
   lazy = true,
   keys = {
-    { "<leader>bs", "<cmd>Scratch<cr>", desc = "scratch buffer (vertical)", mode = "n" },
-    { "<leader>bS", "<cmd>ScratchSplit<cr>", desc = "scratch buffer (horizontal)", mode = "n" },
+    { "<leader>bs", "<cmd>ScratchVSplit<cr>", desc = "scratch buffer (vertical)", mode = "n" },
+    { "<leader>bS", "<cmd>ScratchHSplit<cr>", desc = "scratch buffer (horizontal)", mode = "n" },
   },
   cmd = {
     "Scratch",
