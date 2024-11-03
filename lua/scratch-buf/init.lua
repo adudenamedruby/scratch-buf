@@ -104,7 +104,8 @@ local function horizontal_or_vertical(is_vertical)
 
     -- Look for an existing scratch buffer
     local scratch_buffer_num = vim.fn.bufnr(M.config.buffer_name)
-    if scratch_buffer_num ~= -1 then
+    -- if scratch_buffer_num ~= -1 then
+    if vim.fn.bufexists(M.config.buffer_name) then
         switch_to_existing_buffer(is_vertical, scratch_buffer_num)
     else
         create_new_scratch_buffer(is_vertical, M.config.buffer_name)
@@ -154,7 +155,7 @@ end
 function M.setup(opts)
     -- Default configuration
     M.config = {
-        buffer_name = "*scratch-buffer*",
+        buffer_name = "scratch-buffer",
     }
 
     -- Check for configuration overrides passed in via opts
