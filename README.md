@@ -38,8 +38,8 @@ Install as you would any other plugin NeoVim.
 
 The plugin provides two commands:
 
-- `:ScratchVSplit` — Opens or switches to the scratch buffer in a vertical split.
-- `:ScratchSplit` — Opens or switches to the scratch buffer in a new split window.
+- `:ScratchVSplit` — Opens or switches to the scratch buffer in a vertical window.
+- `:ScratchHSplit` — Opens or switches to the scratch buffer in a horizontal window.
 
 ### Lua Functions
 
