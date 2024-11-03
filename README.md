@@ -6,7 +6,7 @@ Written in Lua for Neovim.
 
 ## Features
 
-- Opens a new buffer in a new vertical split window.
+- Opens a new buffer in a new vertical or horizontal split window.
 - Automatically switch to an existing scratch buffer if it's already open.
 - Scratch buffers are ephemeral, and not backed up to a file.
 
@@ -25,8 +25,8 @@ Install as you would any other plugin NeoVim.
     { "<leader>bS", "<cmd>ScratchHSplit<cr>", desc = "scratch buffer (horizontal)", mode = "n" },
   },
   cmd = {
-    "Scratch",
-    "ScratchSplit",
+    "ScratchVSplit",
+    "ScratchHSplit",
   },
   opts = {},
 }
@@ -45,8 +45,8 @@ The plugin provides two commands:
 
 You can also use the plugin's Lua functions directly:
 
-- `require('scratch').vertical()` — Equivalent to `:ScratchVSplit`.
-- `require('scratch').horizontal()` — Equivalent to `:ScratchHSplit`.
+- `require('scratch-buf').vertical()` — Equivalent to `:ScratchVSplit`.
+- `require('scratch-buf').horizontal()` — Equivalent to `:ScratchHSplit`.
 
 ## License
 
