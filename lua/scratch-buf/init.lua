@@ -1,15 +1,5 @@
 local M = {}
 
---- Checks if the current buffer is modified.
---
--- Returns:
--- bool: True if the buffer is modified, False otherwise.
---
-local function is_buffer_modified()
-    local buf = vim.api.nvim_get_current_buf()
-    return vim.api.nvim_get_option_value("modified", { buf = buf })
-end
-
 --- Switch to an existing buffer in Neovim.
 --
 -- This function checks if a buffer is already open in a window. If it is, it
@@ -99,9 +89,6 @@ end
 -- @return None
 --
 local function horizontal_or_vertical(is_vertical)
-    -- Create new window if requested or if buffer is modified
-    is_vertical = is_vertical or is_buffer_modified()
-
     -- Look for an existing scratch buffer
     local scratch_buffer_num = vim.fn.bufnr(M.config.buffer_name)
     if scratch_buffer_num ~= -1 and vim.fn.bufloaded(scratch_buffer_num) == 1 then
